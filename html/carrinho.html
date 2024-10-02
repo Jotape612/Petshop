@@ -15,8 +15,7 @@
                 <li><a href="../index.html"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" height="35" width="35"> Home</a></li>
                 <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/4329/4329263.png" alt="Serviços" height="35" width="35"> Serviços</a></li>
                 <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/5105/5105311.png" alt="Produtos" height="35" width="35"> Produtos</a></li>
-<<<<<<< HEAD
-                <li><a href="carrinho.html" class="active"><span class="num">0</span> <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="Carrinho" height="35" width="35"> Carrinho </a></li>
+                <li><a href="carrinho.html" class="active"><span class="num">0</span> <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="Carrinho" height="35" width="35"> Carrinho</a></li>
             </ul>
         </nav>
         <div class="search-box">
@@ -26,19 +25,13 @@
             </button>    
         </div>
     </header>
-=======
-                <li> <a href="carrinho.html " class = "active"><span class = "num">0</span> <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt = "Carrinho" height="35" width="35"> Carrinho </a></li>
-        </ul>
-    </nav>
->>>>>>> dd4020af03c2a455bb7e645d88ae92370d9f8f63
 
     <main>
         <h1>Detalhes dos Produtos</h1>
-        <img id="produtosimagem" src="" alt="">
+        <img id="produtosimagem" src="" alt="Produto Selecionado">
         <p id="produtosdetalhes"></p>
     </main>
 
-<<<<<<< HEAD
     <footer id="footer">
         <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
         <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana, Bahia</p>
@@ -49,20 +42,6 @@
             </ul>
         </nav>
     </footer>
-=======
-<footer id="footer">
-    <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
-    <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana, Bahia</p>
-    <nav id="nav-footer">
-        <ul>
-            <li><a href="empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png" alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
-            <!-- Empresa -->
-            <li><a href="contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png" alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
-            <!-- Contato -->
-        </ul>
-    </nav>
-</footer>
->>>>>>> dd4020af03c2a455bb7e645d88ae92370d9f8f63
 
     <script>
         const selecionarProdutos = localStorage.getItem('produtos');
@@ -74,7 +53,7 @@
             'produto 4': '../imagens/raçãogato2.webp'
         };
 
-        document.getElementById('produtosimagem').src = produtoimagem[selecionarProdutos] || '../imagens/placeholder.png'; // Use um placeholder se a imagem não for encontrada
+        document.getElementById('produtosimagem').src = produtoimagem[selecionarProdutos] || '../imagens/placeholder.png'; 
         document.getElementById('produtosdetalhes').textContent = `Você selecionou o ${selecionarProdutos}`;
     </script>
 </body>
