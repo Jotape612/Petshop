@@ -3,44 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dogdays.com</title>
+    <title>Carrinho de Produtos - Dias de Cão</title>
     <link rel="stylesheet" href="../css/carrinho.css">
-
-
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
-
-
-<header id="header">
-    <img src="../imagens/DIAS DE CÃO.png" alt="Logo Dias de Cão" height="100" width="300">
-    <nav id="nav">
-        <ul>
-            <li><a href="../index.html"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" height="35" width="35"> Home</a></li> 
+<body>
+    <header id="header">
+        <img src="../imagens/DIAS DE CÃO.png" alt="Logo Dias de Cão" height="100" width="300">
+        <nav id="nav">
+            <ul>
+                <li><a href="../index.html"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" height="35" width="35"> Home</a></li>
                 <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/4329/4329263.png" alt="Serviços" height="35" width="35"> Serviços</a></li>
                 <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/5105/5105311.png" alt="Produtos" height="35" width="35"> Produtos</a></li>
-                <li> <a href="../html/carrinho.html " class = "active"><span class = "num">0</span> <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt = "Carrinho" height="35" width="35"> Carrinho </a></li>
-        </ul>
-    </nav>
+                <li><a href="carrinho.html" class="active"><span class="num">0</span> <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="Carrinho" height="35" width="35"> Carrinho </a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input class="search-txt" type="text" name="pesquisa" placeholder="O que seu pet precisa?">
+            <button class="button">
+                <i class="uil uil-search"></i>
+            </button>    
+        </div>
+    </header>
 
-    <div class="search-box">
-        <input class="search-txt" type="text" name="pesquisa" placeholder="O que seu pet precisa?">
-        <button class="button">
-            <i class="uil uil-search"></i>
-        </button>    
-    </div>
-</header>
+    <main>
+        <h1>Detalhes dos Produtos</h1>
+        <img id="produtosimagem" src="" alt="">
+        <p id="produtosdetalhes"></p>
+    </main>
 
-<footer id="footer">
-    <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
-    <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana, Bahia</p>
-    <nav id="nav-footer">
-        <ul>
-            <li><a href="../html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png" alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
-            <!-- Empresa -->
-            <li><a href="../html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png" alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
-            <!-- Contato -->
-        </ul>
-    </nav>
-</footer>
+    <footer id="footer">
+        <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
+        <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana, Bahia</p>
+        <nav id="nav-footer">
+            <ul>
+                <li><a href="../html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png" alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
+                <li><a href="../html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png" alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
+            </ul>
+        </nav>
+    </footer>
 
+    <script>
+        const selecionarProdutos = localStorage.getItem('produtos');
+
+        const produtoimagem = {
+            'produto 1': '../imagens/racaoimg2.webp',
+            'produto 2': '../imagens/raçãogato1.webp',
+            'produto 3': '../imagens/racaoimg3.webp',
+            'produto 4': '../imagens/raçãogato2.webp'
+        };
+
+        document.getElementById('produtosimagem').src = produtoimagem[selecionarProdutos] || '../imagens/placeholder.png'; // Use um placeholder se a imagem não for encontrada
+        document.getElementById('produtosdetalhes').textContent = `Você selecionou o ${selecionarProdutos}`;
+    </script>
+</body>
 </html>

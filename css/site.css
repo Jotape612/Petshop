@@ -102,28 +102,86 @@ nav ul li a.active, nav ul li a:hover {
 
 #bemvindo p {
     font-size: 20px;
-    color: #666;
+    color: rgb(67, 75, 67);
+}
+#shopping { 
+    margin: 40px auto;
+    max-width: 1200px; /* Define um max-width para melhorar o layout */
+    text-align: center;
+    padding: 20px;   
+    background-color: #f8f9fa; /* Um fundo suave para destacar os produtos */
+    border-radius: 10px; /* Bordas arredondadas para suavizar o visual */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra mais sutil para profundidade */
 }
 
-#shopping { 
-    
-    margin: 40px auto;
-    max-width:  auto;
-    text-align: center;
-    padding: 20px;
+.cards {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards se ajustem em múltiplas linhas */
+    justify-content: center; /* Centraliza os cards */
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+article.texto {
+    background-color: #ffffff; 
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px; 
+    width: 300px; 
+    transition: transform 0.3s ease; 
+}
+
+article.texto:hover {
+    transform: translateY(-5px); 
 }
 
 .cards img {
-    width: 300px;
-    margin: 0 20px;
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
 }
 
-.cards img:hover {
-    transform: scale(1.05);
+.descrição p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0; 
 }
+
+.card-preço {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 10px;
+}
+
+.valor {
+    font-size: 18px; 
+    color: #333; 
+}
+
+.original {
+    text-decoration: line-through; 
+    color: #999; 
+}
+
+.card-avaliação {
+    margin: 5px 0;
+    color: #FFA500; 
+}
+
+.adicionar {
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.adicionar:hover {
+    background-color: #0056b3; 
+}
+
 
 #content {
     display: flex;
