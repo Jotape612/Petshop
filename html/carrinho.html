@@ -1,60 +1,90 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho de Produtos - Dias de Cão</title>
     <link rel="stylesheet" href="../css/carrinho.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
+
 <body>
     <header id="header">
         <img src="../imagens/DIAS DE CÃO.png" alt="Logo Dias de Cão" height="100" width="300">
         <nav id="nav">
             <ul>
-                <li><a href="../index.html"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" height="35" width="35"> Home</a></li>
-                <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/4329/4329263.png" alt="Serviços" height="35" width="35"> Serviços</a></li>
-                <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/5105/5105311.png" alt="Produtos" height="35" width="35"> Produtos</a></li>
-                <li><a href="carrinho.html" class="active"><span class="num">0</span> <img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="Carrinho" height="35" width="35"> Carrinho</a></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Produtos</a></li>
+                <li><a href="carrinho.html"><span class="num" id="cart-count">0</span> Carrinho</a></li>
             </ul>
         </nav>
-        <div class="search-box">
-            <input class="search-txt" type="text" name="pesquisa" placeholder="O que seu pet precisa?">
-            <button class="button">
-                <i class="uil uil-search"></i>
-            </button>    
-        </div>
     </header>
 
-    <main>
-        <h1>Detalhes dos Produtos</h1>
-        <img id="produtosimagem" src="" alt="Produto Selecionado">
-        <p id="produtosdetalhes"></p>
+    <main id="cart">
+        <h1>Seu Carrinho</h1>
+        <div id="cartItems"></div>
+        <p>Total: <span id="totalValue">R$ 0,00</span></p>
+        <button onclick="finalizarCompra()">Finalizar Compra</button>
+
+        <div id="pedidoAlert" class="alert">Compra finalizada com sucesso!</div>
     </main>
 
-    <footer id="footer">
-        <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
-        <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana, Bahia</p>
-        <nav id="nav-footer">
-            <ul>
-                <li><a href="../html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png" alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
-                <li><a href="../html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png" alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
-            </ul>
-        </nav>
-    </footer>
-
+    
     <script>
-        const selecionarProdutos = localStorage.getItem('produtos');
+        function displayCart() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartContainer = document.getElementById('cartItems');
+            cartContainer.innerHTML = '';
 
-        const produtoimagem = {
-            'produto 1': '../imagens/racaoimg2.webp',
-            'produto 2': '../imagens/raçãogato1.webp',
-            'produto 3': '../imagens/racaoimg3.webp',
-            'produto 4': '../imagens/raçãogato2.webp'
-        };
+            let totalValue = 0;
+            cartItems.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                const subtotal = item.price * item.quantity;
+                totalValue += subtotal;
 
-        document.getElementById('produtosimagem').src = produtoimagem[selecionarProdutos] || '../imagens/placeholder.png'; 
-        document.getElementById('produtosdetalhes').textContent = `Você selecionou o ${selecionarProdutos}`;
+                cartItem.innerHTML = `
+                    <p>${item.name}</p>
+                    <p>R$${item.price.toFixed(2)}</p>
+                    <p>Quantidade: ${item.quantity}</p>
+                    <p>Subtotal: R$${subtotal.toFixed(2)}</p>
+                    <button onclick="removeFromCart('${item.name}')">Remover</button>
+                `;
+                cartContainer.appendChild(cartItem);
+            });
+
+            document.getElementById('totalValue').textContent = `R$${totalValue.toFixed(2)}`;
+        }
+
+        function removeFromCart(productName) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems = cartItems.filter(item => item.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            displayCart();
+            updateCartCount();
+        }
+
+        function finalizarCompra() {
+            const alertBox = document.getElementById('pedidoAlert');
+            alertBox.classList.add('show');
+            setTimeout(() => {
+                alertBox.classList.remove('show');
+                localStorage.removeItem('cart');
+                window.location.href = '../index.html';
+            }, 3000);
+        }
+
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        window.onload = function() {
+            displayCart();
+            updateCartCount();
+        }
     </script>
 </body>
 </html>
