@@ -9,6 +9,7 @@
 
     <script src="js/script.js" defer></script>
     <script src="js/site.js" defer></script>
+    <script type="text/javascript" src="script.js"></script>
 
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 </head>
@@ -24,11 +25,14 @@
                             height="35" width="35"> Serviços</a></li>
                 <li><a href="#"><img src="https://cdn-icons-png.flaticon.com/512/5105/5105311.png" alt="Produtos"
                             height="35" width="35"> Produtos</a></li>
-                <li><a href="html/carrinho.html"><span class="num">0</span> <img
+                <li> <a href="html/carrinho.html"><span class="num">0</span> <img
                             src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="Carrinho" height="35"
                             width="35"> Carrinho </a></li>
             </ul>
         </nav>
+
+        <h1>Tema Dark/Light</h1>
+        <button id="mode-tema">Dark</button>
 
         <div class="search-box">
             <input class="search-txt" type="text" name="pesquisa" placeholder="O que seu pet precisa?">
@@ -38,13 +42,19 @@
         </div>
     </header>
 
+
     <section id="bemvindo">
         <h1>Bem-vindo à Dias de Cão!</h1>
         <p>Seu pet merece o melhor, e aqui você encontra tudo o que precisa para cuidar do seu melhor amigo! Oferecemos
             os melhores produtos e serviços com todo o carinho e dedicação que seu pet merece.</p>
     </section>
 
+
+
     <section class="carrosel">
+
+
+
         <div class="carrosel-content">
             <input type="radio" name="btn-radio" id="radio1">
             <input type="radio" name="btn-radio" id="radio2">
@@ -57,13 +67,14 @@
 
             <div class="carrosel-box">
                 <img src="https://www.petlove.com.br/static/uploads/banner_image/image/53277/CAMP-7034MEFechamesmacro50OFF-CPD.gif"
-                    alt="Promoção">
+                    alt="Tosa">
             </div>
 
             <div class="carrosel-box">
                 <img src="https://www.petlove.com.br/static/uploads/banner_image/image/53282/CAMP-6971AgostoMarsExclusivoquinzenacaoKitscombos15OFF-CPD.png"
-                    alt="Ofertas">
+                    alt="Tosa">
             </div>
+
 
             <div class="nav-auto">
                 <div class="auto-btn1"></div>
@@ -71,84 +82,85 @@
                 <div class="auto-btn3"></div>
             </div>
 
+
             <div class="nav-manual">
                 <label for="radio1" class="manual-btn"></label>
                 <label for="radio2" class="manual-btn"></label>
                 <label for="radio3" class="manual-btn"></label>
+
             </div>
         </div>
+
     </section>
 
+
+
     <main id="shopping">
-        <div class="cards">
-
-            <article class="texto">
-                <div class="letreiro">
-                    <p>Mais vendido</p>
+        <article class="texto">
+            <div class="letreiro">
+                <p>Ração Nestlé Purina Friskies</p>
+            </div>
+            <div class="imagens">
+                <img src="imagens/produto1.png" alt="Ração para Gatos">
+            </div>
+            <div class="descrição">
+                <p>Ração sabor salmão para gatos.</p>
+            </div>
+            <div class="card-preço">
+                <div class="valor">
+                    <span class="final">R$ 25,99</span>
                 </div>
-                <div class="imagens">
-                    <img src="https://m.media-amazon.com/images/I/81hM6314usL._AC_UF1000,1000_QL80_.jpg" alt="Produto 1">
-                </div>
-                <div class="descrição">
-                    <p>Ração Salmão ao Molho</p>
-                </div>
-                <div class="card-preço">
-                    <div class="valor">
-                        <span class="final"><b>R$ 29,90</b></span>
-                        <span class="original"><b>R$ 34,90</b></span>
-                    </div>
-                    <p class="card-avaliação">⭐<i>3.379</i></p>
-                    <button class="adicionar" onclick="addToCart(event)">Adicionar</button>
-                </div>
-            </article>
+                <p class="card-avaliação">⭐ 4.5</p>
+                <button class="adicionar" onclick="addToCart('Ração Nestlé Purina Friskies', 25.99)">Adicionar</button>
+            </div>
+        </article>
 
 
+        <article class="texto">
+            <div class="letreiro">
+                <p>Ração Nestlé Purina Friskies</p>
+            </div>
+            <div class="imagens">
+                <img src="imagens/produto1.png" alt="Ração para Gatos">
+            </div>
+            <div class="descrição">
+                <p>Ração sabor salmão para gatos.</p>
+            </div>
+            <div class="card-preço">
+                <div class="valor">
+                    <span class="final">R$ 25,99</span>
+                </div>
+                <p class="card-avaliação">⭐ 4.5</p>
+                <button class="adicionar" onclick="addToCart('Ração Nestlé Purina Friskies', 25.99)">Adicionar</button>
+            </div>
+        </article>
 
-            <article class="texto">
-                <div class="letreiro">
-                    <p>Ração em alta</p>
+        <article class="texto">
+            <div class="letreiro">
+                <p>Ração Nestlé Purina Friskies</p>
+            </div>
+            <div class="imagens">
+                <img src="imagens/produto1.png" alt="Ração para Gatos">
+            </div>
+            <div class="descrição">
+                <p>Ração sabor salmão para gatos.</p>
+            </div>
+            <div class="card-preço">
+                <div class="valor">
+                    <span class="final">R$ 25,99</span>
                 </div>
-                <div class="imagens">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRL13CqV3-oVxZiba67niffcyYkh-7pdKzA6A&s" alt="Produto 2">
-                </div>
-                <div class="descrição">
-                    <p>Ração Premium Cães</p>
-                </div>
-                <div class="card-preço">
-                    <div class="valor">
-                        <span class="final"><b>R$ 45,90</b></span>
-                        <span class="original"><b>R$ 59,90</b></span>
-                    </div>
-                    <p class="card-avaliação">⭐<i>4.235</i></p>
-                    <button class="adicionar" onclick="addToCart(event)">Adicionar</button>
-                </div>
-            </article>
+                <p class="card-avaliação">⭐ 4.5</p>
+                <button class="adicionar" onclick="addToCart('Ração Nestlé Purina Friskies', 25.99)">Adicionar</button>
+            </div>
+        </article>
 
+        </article>
 
-
-            <article class="texto">
-                <div class="letreiro">
-                    <p>Brinquedo favorito deles</p>
-                </div>
-                <div class="imagens">
-                    <img src="imagens/brinquedo.png" alt="Produto 3">
-                </div>
-                <div class="descrição">
-                    <p>Brinquedo Interativo para Cães</p>
-                </div>
-                <div class="card-preço">
-                    <div class="valor">
-                        <span class="final"><b>R$ 79,90</b></span>
-                        <span class="original"><b>R$ 99,90</b></span>
-                    </div>
-                    <p class="card-avaliação">⭐<i>4.123</i></p>
-                    <button class="adicionar" onclick="addToCart(event)">Adicionar</button>
-                </div>
-            </article>
         </div>
     </main>
 
-    
+
+
     <section id="content">
         <article class="article">
             <h2>Artigo 1</h2>
@@ -162,22 +174,26 @@
 
     <footer id="footer">
         <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
-        <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana, Bahia</p>
+        <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana,
+            Bahia</p>
         <nav id="nav-footer">
             <ul>
-                <li><a href="html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png" alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
-                <li><a href="html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png" alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
+
+                <li><a href="../html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png"
+                            alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
+
+                <li><a href="../html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png"
+                            alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
+
+                <li><a href="html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png"
+                            alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
+
+                <li><a href="html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png"
+                            alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
+
             </ul>
         </nav>
     </footer>
-
-    <script>
-        function addToCart(event) {
-            const cartCount = document.querySelector('.num');
-            let count = parseInt(cartCount.textContent);
-            count += 1;
-            cartCount.textContent = count;
-        }
-    </script>
 </body>
+
 </html>
