@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Dias de Cão</title>
+    <link rel="stylesheet" href="../css/produto.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+    <header id="header">
+        <img src="../imagens/DIAS DE CÃO.png" alt="Logo Dias de Cão" height="100" width="300">
+        <nav id="nav">
+            <ul>
+                <li><a href="../index.html"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" height="35" width="35"> Home</a></li>
+                <li><a href="../html/serviço.html"><img src="https://cdn-icons-png.flaticon.com/512/4329/4329263.png" alt="Serviços" height="35" width="35"> Serviços</a></li>
+                <li><a href="../html/produtos.html"><img src="https://cdn-icons-png.flaticon.com/512/5105/5105311.png" alt="Produtos" height="35" width="35"> Produtos</a></li>
+                <li><a href="../html/carrinho.html"><span class="num">0</span><img src="https://cdn-icons-png.flaticon.com/512/4/4295.png" alt="Carrinho" height="35" width="35"> Carrinho</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-box">
+            <input class="search-txt" type="text" name="pesquisa" placeholder="O que seu pet precisa?">
+            <button class="button">
+                <i class="uil uil-search"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="produtos">
+        <h1>PRODUTOS</h1>
+       
+        <article class="produto">
+            <div class="letreiro">
+                <p>Ração</p>
+            </div>
+            <div class="imagens">
+                <img src="../imagens/ração-dog1.png" alt="ração">
+            </div>
+            <div class="descricao">
+                <p>Ração de melhor qualidade</p>
+            </div>
+            <div class="card-preco">
+                <div class="valor">
+                    <span class="final">R$ 5,00</span>
+                </div>
+                <button class="adicionar" onclick="addToCart('Ração', 5.00)">Adicionar</button>
+            </div>
+        </article>
+
+        <article class="produto">
+            <div class="letreiro">
+                <p>Sache</p>
+            </div>
+            <div class="imagens">
+                <img src="../imagens/sache-cachorro.png" alt="Sache">
+            </div>
+            <div class="descricao">
+                <p>Sache pedigre.</p>
+            </div>
+            <div class="card-preco">
+                <div class="valor">
+                    <span class="final">R$ 7,50</span>
+                </div>
+                <button class="adicionar" onclick="addToCart('Sache pedigre', 7.50)">Adicionar</button>
+            </div>
+        </article>
+
+        <article class="produto">
+            <div class="letreiro">
+                <p>Brinquedo</p>
+            </div>
+            <div class="imagens">
+                <img src="../imagens/brinquedo-cao2.png" alt="Brinquedo">
+            </div>
+            <div class="descricao">
+                <p>Brinquedo top top e não quebra.</p>
+            </div>
+            <div class="card-preco">
+                <div class="valor">
+                    <span class="final">R$ 50,00</span>
+                </div>
+                <button class="adicionar" onclick="addToCart('Brinquedo', 50.00)">Adicionar</button>
+            </div>
+        </article>
+    </section>
+
+    <footer id="footer">
+        <p>&copy; 2024 Dias de Cão. Todos os direitos reservados a PauloSousa.</p>
+        <p>Telefone: (11) 1234-5678 | E-mail: empresa@diasdecao.com.br | Endereço: Rua dos Pets, 123, Feira de Santana,
+            Bahia</p>
+        <nav id="nav-footer">
+            <ul>
+                <li><a href="../html/empresa.html"><img src="https://cdn-icons-png.flaticon.com/512/5812/5812751.png"
+                            alt="Sobre" height="35" width="35"> Quem somos nós?</a></li>
+
+                <li><a href="../html/contato.html"><img src="https://cdn-icons-png.flaticon.com/512/15/15895.png"
+                            alt="Contato" height="35" width="35"> Entre em contato conosco!</a></li>
+            </ul>
+        </nav>
+    </footer>
+    
+    <script>
+        function addToCart(serviceName, servicePrice) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const existingItem = cartItems.find(item => item.name === serviceName);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cartItems.push({ name: serviceName, price: servicePrice, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCartCount();
+        }
+
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+            document.querySelector('.num').textContent = totalItems;
+        }
+
+        window.onload = function() {
+            updateCartCount();
+        }
+    </script>
+</body>
+
+</html>

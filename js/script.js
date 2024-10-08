@@ -13,6 +13,8 @@ function addToCart(event) {
     image: productImage
   };
 
+
+
   
   const cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
   cartProducts.push(productData);
